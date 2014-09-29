@@ -3,12 +3,34 @@
 </head>
 
 <body>
-  <h1>Welcome to Glorify Meteor!</h1>
 
-  {{> home}}
 </body>
 
-<template name="home">
-  <button>Click me</button>
-  <p>Here you will learn something (special) about Meteor {{counter}}</p>
+<template name="layout">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <br/>
+        <div class="list-group menu">
+          <a class="list-group-item" href="{{pathFor 'home'}}">Intro</a>
+          <a class="list-group-item" href="{{pathFor 'ironRouter'}}">Routing with Iron Router</a>
+          <a class="list-group-item" href="{{pathFor 'publishSubscribe'}}">Publish & Subscribe</a>
+          <a class="list-group-item" href="{{pathFor 'reactivity'}}">Reactivity - realtime changes</a>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <h1>Welcome to Glorify Meteor!</h1>
+        <p>
+          <span class="glyphicon glyphicon-book"></span>
+          You will learn something (special) about Meteor here.
+        </p>
+        {{> yield}}
+      </div>
+    </div>
+
+    <div class="footer">
+      Created by <a href="http://hromnik.com">Elfoslav</a> |
+      Code on <a href="https://github.com/Elfoslav/glorify-meteor">Github</a>
+    </div>
+  </div>
 </template>

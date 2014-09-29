@@ -6,6 +6,13 @@ if (Meteor.isClient) {
   Template.home.helpers({
     counter: function () {
       return Session.get("counter");
+    },
+    templateExample: function() {
+      return '' +
+      '<template name="home">\n' +
+        ' <button>Click me</button>\n' +
+        ' <p>Click the button above {{counter}}</p>\n' +
+      '</template>';
     }
   });
 

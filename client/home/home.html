@@ -1,0 +1,53 @@
+<template name="home">
+  <h2>Intro</h2>
+  <p>If you don't have Meteor.js installed check this
+    <a href="http://docs.meteor.com/#quickstart" target="_blank">
+      quickstart
+    </a>.
+  </p>
+  <p>If you create new Meteor.js application you will get this:</p>
+  <hr/>
+
+  <button>Click me</button>
+  <p>Click the button above {{counter}}</p>
+
+  <hr/>
+  <h3>Client code:</h3>
+  <p>Client code is in <i>client</i> folder or wrapped with <i>if (Meteor.isClient) {}</i></p>
+<pre>
+// counter starts at 0
+Session.setDefault("counter", 0);
+
+Template.home.helpers({
+  counter: function () {
+    return Session.get("counter");
+  }
+});
+
+Template.home.events({
+  'click button': function () {
+    // increment the counter when button is clicked
+    Session.set("counter", Session.get("counter") + 1);
+  }
+});
+</pre>
+
+  <p>In the code above we use basic client-side Meteor components -
+    <a href="http://docs.meteor.com/#session">Session</a>,
+    <a href="http://docs.meteor.com/#template_helpers">helpers</a>,
+    <a href="http://docs.meteor.com/#template_events">events</a>.
+  </p>
+
+  <h3>Template code</h3>
+
+  <pre>{{templateExample}}</pre>
+
+  <p>Okay, now open your developer console (press F12) and type in it:</p>
+  <pre>Session.set("counter", Session.get("counter") + 1);</pre>
+  <p>And see the counter: {{counter}}</p>
+  <p>
+    If you change session variable which value is rendered in template
+    the template is automatically updated. Awesome. If you reload
+    your browser, the session is set to it's default value 0 (<i>Session.setDefault("counter", 0);</i>).
+  </p>
+</template>

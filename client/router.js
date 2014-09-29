@@ -7,6 +7,10 @@ Router.map(function() {
     path: '/iron-router'
   });
 
+  this.route('packages', {
+    path: '/packages'
+  });
+
   this.route('publishSubscribe', {
     path: '/publish-subscribe'
   });

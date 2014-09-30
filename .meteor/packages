@@ -6,10 +6,10 @@
 meteor-platform
 insecure
 iron:router
-mizzao:bootstrap-3
 less
 accounts-ui
 accounts-password
 sewdn:highlightjs
 spiderable
+pinglamb:bootstrap3
 

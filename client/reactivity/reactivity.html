@@ -1,7 +1,37 @@
 <template name="reactivity">
   <h2>Reactivity - realtime changes</h2>
 
-  TODO
+  <p>
+    Meteor is super simple tool for creating realtime applications. If you do a change
+    in your database, the change is automatically published to all connected clients.
+    Open your two browsers with this page and watch the magic!
+  </p>
+
+  <p>Add a book via developers console:</p>
+
+<pre>
+Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
+</pre>
+
+  {{> books}}
+
+  <p>Books.insert() returned you id of inserted document. Use this id to update the book:</p>
+
+<pre>
+Books.update('insertIdHere', {
+  $set: { title: 'Glofiry Meteor', author: 'Elfoslav' }
+});
+</pre>
+
+  <p>And remove the book you created:</p>
+
+<pre>Books.remove('insertIdHere');</pre>
+
+  <p>
+    <b>Warning!</b> Adding and updating collections via console is just for demonstration purposes.
+    You should read <a href="{{pathFor 'autopublishAndInsecure'}}">Autopublish and Insecure packages</a>
+    chapter to make your application secure.
+  </p>
 
   <br/><br/>
   {{> disqus}}

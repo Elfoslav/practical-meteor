@@ -35,7 +35,10 @@ Router.map(function() {
   });
 
   this.route('reactivity', {
-    path: '/reactivity'
+    path: '/reactivity',
+    waitOn: function() {
+      return Meteor.subscribe('books');
+    }
   });
 });
 

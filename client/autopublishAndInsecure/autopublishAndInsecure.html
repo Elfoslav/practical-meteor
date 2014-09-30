@@ -24,15 +24,14 @@ Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
 
   {{> books}}
 
-  <p>To delete a document from client code you need to specify id of the document:</p>
-
   {{#if oneBook}}
+    <p>To delete a document from client code you need to specify id of the document:</p>
     <div class="well well-sm well-dark css hljs">
       <span class="hljs-tag">Books</span><span class="hljs-class">.remove</span>(<span class="hljs-string">'{{oneBook._id}}'</span>);
     </div>
   {{/if}}
 
-  <p><b>Please delete what you created. Don't mess me this page. Thanks :-)</b></p>
+  <p><b>Please delete what you created. Don't mess this page. Thanks :-)</b></p>
 
   <p>I strongly recommend to remove Autopublish and Insecure packages before deploying production app:</p>
 

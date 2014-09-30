@@ -12,7 +12,7 @@ Router.map(function() {
   });
 
   this.route('accountsPackage', {
-    path: '/accountsPackage'
+    path: '/accounts-package'
   });
 
   this.route('packages', {

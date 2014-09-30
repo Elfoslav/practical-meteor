@@ -1,0 +1,23 @@
+<template name="accountsPackage">
+  <h2>Accounts package - register/login</h2>
+  <p>
+    You can simply add <a href="http://docs.meteor.com/#accountsui">accounts-ui</a> package and some of
+    login services (password, Facebook, Twitter, Google,...)
+  </p>
+
+<pre>
+$ meteor add accounts-ui
+$ meteor add accounts-password
+</pre>
+
+  <p>Add to your template:</p>
+
+  <pre>{{loginButtonsExample}}</pre>
+
+  <p>Fully functional result:</p>
+  {{> loginButtons}}
+
+  <br/><br/>
+  {{> disqus}}
+
+</template>

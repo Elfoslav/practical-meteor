@@ -22,13 +22,7 @@
 Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
 </pre>
 
-  <ul>
-  {{#each books}}
-    <li title="{{_id}}">{{title}} by {{author}}</li>
-  {{else}}
-    <li>No books</li>
-  {{/each}}
-  </ul>
+  {{> books}}
 
   <p>To delete a document from client code you need to specify id of the document:</p>
 
@@ -38,7 +32,7 @@ Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
     </div>
   {{/if}}
 
-  <p>Please delete what you created. Don't mess me this page. Thanks :-)</p>
+  <p><b>Please delete what you created. Don't mess me this page. Thanks :-)</b></p>
 
   <p>I strongly recommend to remove Autopublish and Insecure packages before deploying production app:</p>
 
@@ -48,5 +42,8 @@ $ meteor remove insecure
 </pre>
 
   <p>Read more about <a href="{{pathFor 'publishSubscribe'}}">publishing and subscribing your data</a>.</p>
+
+  <br/><br/>
+  {{> disqus}}
 
 </template>

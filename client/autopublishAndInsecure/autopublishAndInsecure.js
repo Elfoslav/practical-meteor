@@ -3,9 +3,6 @@ Template.autopublishAndInsecure.rendered = function() {
 };
 
 Template.autopublishAndInsecure.helpers({
-  books: function() {
-    return Books.find();
-  },
   oneBook: function() {
     return Books.findOne();
   }

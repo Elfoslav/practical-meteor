@@ -1,0 +1,9 @@
+<template name="books">
+   <ul>
+    {{#each books}}
+      <li title="{{_id}}">{{title}} by {{author}}</li>
+    {{else}}
+      <li>No books</li>
+    {{/each}}
+  </ul>
+</template>

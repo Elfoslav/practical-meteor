@@ -11,16 +11,23 @@ Router.map(function() {
     path: '/iron-router'
   });
 
+  this.route('accountsPackage', {
+    path: '/accountsPackage'
+  });
+
   this.route('packages', {
     path: '/packages'
   });
 
-  this.route('autopublishAndInsecure', {
-    path: '/autopublish-and-insecure'
-  });
-
   this.route('collections', {
     path: '/collections'
+  });
+
+  this.route('autopublishAndInsecure', {
+    path: '/autopublish-and-insecure',
+    waitOn: function() {
+      return Meteor.subscribe('books');
+    }
   });
 
   this.route('publishSubscribe', {

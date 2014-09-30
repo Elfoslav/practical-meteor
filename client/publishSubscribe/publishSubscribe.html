@@ -2,5 +2,43 @@
   <h2>Publish & Subscribe</h2>
   <p>
     In Meteor you need to subscribe data you want to show on the client and publish them on the server.
+    As I mentioned in <a href="{{pathFor 'autopublishAndInsecure'}}">previous chapter</a>
+    meteor app includes autopublish package by default which causes all your data in MongoDB are
+    published/downloaded to the client (MiniMongo). When we remove autopublish package
+    (<i>$ meteor remove autopublish</i>) there are no data on the client.
+    Wee need to publish data on the server and subscribe to them on the client.
   </p>
+
+  <h3>Publish on the server</h3>
+
+<pre>
+Meteor.publish('books', function() {
+  return Books.find();
+});
+</pre>
+
+  <p>We created a publish function called 'books' so we can subscribe for the books on the client.</p>
+
+  <h3>Subscribe on the client</h3>
+
+  <p>I removed autopublish package from this app so we need to subscribe for data. Try it in your console:</p>
+
+<pre>var booksSub = Meteor.subscribe('books');</pre>
+
+  <p>Now you should see books:</p>
+
+  {{> books}}
+
+  <p>If text 'No books' is shown, there are probably no data for books. Add one:</p>
+
+<pre>
+Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
+</pre>
+
+  <a href="https://www.discovermeteor.com/blog/understanding-meteor-publications-and-subscriptions/">
+    Learn more about publications and subscriptions
+  </a>
+
+  <br/><br/>
+  {{> disqus}}
 </template>

@@ -20,7 +20,10 @@ Router.map(function() {
   });
 
   this.route('collections', {
-    path: '/collections'
+    path: '/collections',
+    waitOn: function() {
+      return Meteor.subscribe('books');
+    }
   });
 
   this.route('autopublishAndInsecure', {
@@ -39,6 +42,10 @@ Router.map(function() {
     waitOn: function() {
       return Meteor.subscribe('books');
     }
+  });
+
+  this.route('superEasyDeploy', {
+    path: '/super-easy-deploy'
   });
 });
 

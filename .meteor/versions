@@ -57,6 +57,7 @@ sewdn:highlightjs@0.1.0
 sha@1.0.0
 spacebars-compiler@1.0.2
 spacebars@1.0.2
+spiderable@1.0.3
 srp@1.0.0
 templating@1.0.7
 tracker@1.0.2

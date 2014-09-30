@@ -53,7 +53,7 @@ Router.onRun(function() {
   $('.menu .list-group-item').removeClass('active');
   $('.menu .list-group-item[href="' + this.path + '"]').addClass('active');
   //Google analytics send pageview
-  ga('send', 'pageview');
+  ga('send', 'pageview', this.path);
 });
 
 Router.configure({

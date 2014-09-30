@@ -1,0 +1,52 @@
+<template name="autopublishAndInsecure">
+  <h2>Autopublish and Insecure packages</h2>
+  <p>
+    By default meteor application contains Autopublish and Insecure packages.
+    <b>They are good for prototyping your application quickly</b>.
+  </p>
+  <p>
+    <b>Autopublish package</b> publishes all your data (collections) from the server to the client.
+    You don't need to think about what data you need where. But once you want to use the application
+    in production you need to use <a href="{{pathFor 'publishSubscribe'}}">Publish & Subscribe</a> functions.
+    Imagine you have millions of records in your collections and they are downloaded to the client - WRONG -
+    you need to publish just a subset of the data. Another example is users collection - you don't want
+    to publish user's email or another private data.
+  </p>
+  <p>
+    <b>Insecure package</b> is great for prototyping. You can insert, update and remove your data right
+    from developers console and they are reactively shown in template.
+  </p>
+  <p>Try this in your console:</p>
+
+<pre>
+Books.insert({ title: 'Discover Meteor', author: 'Tom Coleman & Sacha Greif'});
+</pre>
+
+  <ul>
+  {{#each books}}
+    <li title="{{_id}}">{{title}} by {{author}}</li>
+  {{else}}
+    <li>No books</li>
+  {{/each}}
+  </ul>
+
+  <p>To delete a document from client code you need to specify id of the document:</p>
+
+  {{#if oneBook}}
+    <div class="well well-sm well-dark css hljs">
+      <span class="hljs-tag">Books</span><span class="hljs-class">.remove</span>(<span class="hljs-string">'{{oneBook._id}}'</span>);
+    </div>
+  {{/if}}
+
+  <p>Please delete what you created. Don't mess me this page. Thanks :-)</p>
+
+  <p>I strongly recommend to remove Autopublish and Insecure packages before deploying production app:</p>
+
+<pre>
+$ meteor remove autopublish
+$ meteor remove insecure
+</pre>
+
+  <p>Read more about <a href="{{pathFor 'publishSubscribe'}}">publishing and subscribing your data</a>.</p>
+
+</template>

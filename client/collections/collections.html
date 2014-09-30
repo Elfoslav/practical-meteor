@@ -1,0 +1,43 @@
+<template name="collections">
+  <h2>Database Collections</h2>
+  <p>
+    You can use <a href="http://docs.meteor.com/#mongo_collection">collections</a> on the server and on the client.
+  </p>
+  <p>
+    Create <i>common</i> folder in your project and define a collection in file <i>common/collections.js</i>:
+  </p>
+
+<pre>
+Books = new Mongo.Collection('books');
+</pre>
+
+  <p>Define Books collection without <i>var</i> keyword to be accessible in whole application.</p>
+  <p>Now you can use the collection on the server and on the client. Try this in your console:</p>
+
+<pre>
+var books = Books.find();
+</pre>
+
+  <p><i>Books.find()</i> returns a cursor. You need to use <i>Books.find().fetch()</i> to see your data.
+    To learn more about collection queries and coursors see
+    <a href="http://docs.meteor.com/#find">the docs</a>.
+  </p>
+
+  <p>Usually you need to know what data fields and types you can use in your collection:</p>
+
+<pre>
+/**
+ * {
+  title: String,
+  author: String
+ }
+ */
+Books = new Mongo.Collection('books');
+</pre>
+
+  <p>It's enough to define data fields and their types in comment as above.
+    If you want to validate data in collection you can use
+    <a href="https://atmospherejs.com/aldeed/collection2">Collection2 package</a>.
+  </p>
+
+</template>

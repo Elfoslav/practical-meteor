@@ -8,6 +8,22 @@
     without worying you something break.
   </p>
 
+  <p>Structure of your application depends on size of your application.</p>
+  <p>You can Google
+    <a href="https://www.google.sk/search?q=meteor+app+structure&oq=meteor+app+structure&aqs=chrome..69i57j69i60.3113j0j7&sourceid=chrome&es_sm=93&ie=UTF-8" target="_blank">
+      "meteor app structure"
+    </a>
+    to learn more about structuring your app.
+  </p>
+
+  <p>
+    I recommend not to have more than 500 lines of code in 1 file.
+    You should have <i>client</i> and <i>server</i> folders in your project to determine
+    which code is used on the client and which is used on the server. Also you can name <i>common</i>
+    folder for code which is used on both - server and client side, for example
+    some functions and collections.
+  </p>
+
   <br/><br/>
   {{> disqus}}
 </template>

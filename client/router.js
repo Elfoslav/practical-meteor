@@ -3,6 +3,14 @@ Router.map(function() {
     path: '/'
   });
 
+  this.route('helpers', {
+    path: '/helpers'
+  });
+
+  this.route('events', {
+    path: '/events'
+  });
+
   this.route('applicationStructure', {
     path: '/application-structure'
   });

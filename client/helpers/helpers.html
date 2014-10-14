@@ -1,8 +1,77 @@
 <template name="helpers">
   <h2>Helpers</h2>
   <p>
-    TODO
+    Helpers are functions which returns data for template.
   </p>
+
+  <p>For example:</p>
+<pre>
+Template.yourTemplateName.helpers({
+  books: function() {
+    return ['Discover Meteor', 'Meteor in action', 'Practical Meteor'];
+  }
+});
+</pre>
+  <p>And in your template you can show books:</p>
+  <pre>{{showBooks}}</pre>
+
+  <h3>Result:</h3>
+  <hr>
+  {{#each books}}
+    <p>{{this}}</p>
+  {{/each}}
+  <hr>
+
+  <p>Our books helper returned simple array of strings. Usually, we work with objects in JavaScript.
+    See how it will look with array of objects:
+  </p>
+<pre>
+Template.helpers.helpers({
+  books: function() {
+    return [
+      { title: 'Discover Meteor', pages: 300 },
+      { title: 'Meteor in action', pages: 250 },
+      { title: 'Practical Meteor', pages: 199 }
+    ];
+  }
+});
+</pre>
+
+  <p>Template snippet:</p>
+  <pre>{{showBooksObjects}}</pre>
+
+  <h3>Result:</h3>
+  <hr>
+  {{#each booksObjects}}
+    <p>{{title}}, {{pages}} pages.</p>
+  {{/each}}
+  <hr>
+
+  <h2>Helpers with parameters</h2>
+  <p>Add helper called <i>add</i> with parameters:</p>
+<pre>
+Template.helpers.helpers({
+  books: function() {
+    return [
+      { title: 'Discover Meteor', pages: 300 },
+      { title: 'Meteor in action', pages: 250 },
+      { title: 'Practical Meteor', pages: 199 }
+    ];
+  },
+  add: function(a, b) {
+    return a + b;
+  }
+});
+</pre>
+  <p>Usage of <i>add</i> helper in template:</p>
+  <pre>{{addHelper}}</pre>
+
+  <h3>Result:</h3>
+  <hr>
+  {{add 5 6}}
+  <hr>
+
+  <p>See helpers in <a href="http://docs.meteor.com/#template_helpers" target="_blank">Meteor docs</a>.</p>
 
   <br/><br/>
   {{> disqus}}

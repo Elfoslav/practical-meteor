@@ -1,0 +1,65 @@
+<template name="templates">
+  <h2>Templates</h2>
+
+  <h3>What is a template?</h3>
+  <p>
+    Template is a piece of application which shows some data. For example, every page is a separate
+    template.
+  </p>
+
+  <p>Template consists of HTML and JavaScript, eventually CSS.</p>
+
+  <p>In Meteor, templates are usually in HTML files. One HTML file can contain multiple templates,
+    but I recommend to have one template in one HTML file:
+  </p>
+
+<pre>
+&lt;template name="yourTemplateName"&gt;
+  &lt;h2&gt;You template title&lt;/h2&gt;
+
+  &lt;p&gt;Lorem ipsum dolor... some text.&lt;/p&gt;
+&lt;/template&gt;
+</pre>
+
+  <p>To render your template use:</p>
+  <pre>{{includeTemplate 'yourTemplateName'}}</pre>
+
+  <h3>Result:</h3>
+  <hr>
+  {{> yourTemplateName}}
+  <hr>
+
+  <p>You can even include templates into another template:</p>
+
+<pre>
+&lt;template name="yourTemplateName"&gt;
+  &lt;h2&gt;You template title&lt;/h2&gt;
+
+  &lt;p&gt;Lorem ipsum dolor... some text.&lt;/p&gt;
+
+  {{includeTemplate 'anotherTemplate'}}
+&lt;/template&gt;
+
+&lt;template name="anotherTemplate"&gt;
+  &lt;p&gt;Some content in your another template.&lt;/p&gt;
+&lt;/template&gt;
+</pre>
+
+  <h3>Result:</h3>
+  <hr>
+  {{> yourTemplateName}}
+  {{> anotherTemplate}}
+  <hr>
+
+  <p>
+    To show data from the server you need to use <a href="{{pathFor 'helpers'}}">helpers</a>.
+  </p>
+
+  <p>
+    To interact with your template (click, keypress,...) you need to use <a href="{{pathFor 'events'}}">events</a>.
+  </p>
+
+  <br/><br/>
+  {{> disqus}}
+
+</template>

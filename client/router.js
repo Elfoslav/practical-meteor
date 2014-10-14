@@ -3,6 +3,10 @@ Router.map(function() {
     path: '/'
   });
 
+  this.route('templates', {
+    path: '/templates'
+  });
+
   this.route('helpers', {
     path: '/helpers'
   });

@@ -1,10 +1,6 @@
-Glorify Meteor!
+Practical Meteor
 ===
 
-Runnable Meteor.js examples
-
-[glorify.meteor.com](http://glorify.meteor.com)
-
-Or newer version
+Live Meteor.js examples
 
 [practical.meteor.com](http://practical.meteor.com)

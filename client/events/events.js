@@ -3,7 +3,7 @@ Template.events.rendered = function() {
 };
 
 Template.events.events({
-  'click button': function() {
-    return 'TODO';
+  'click .clickable': function() {
+    return alert('You clicked!');
   }
 });

@@ -1,8 +1,28 @@
 <template name="events">
   <h2>Events</h2>
   <p>
-    TODO
+    If you know jQuery,
+    <a href="http://docs.meteor.com/#template_events" target="_blank">events in Meteor</a> are similar.
   </p>
+
+  <p>Let's create click event:</p>
+<pre>
+Template.yourTemplateName.events({
+  'click .clickable': function() {
+    return alert('You clicked!');
+  }
+});
+</pre>
+
+  <p>And add to your template elements with .clickable class:</p>
+<pre>
+&lt;button class="clickable"&gt;Click me&lt;/button&gt;
+&lt;p class="clickable"&gt;You can also click on me.&lt;/p&gt;
+</pre>
+
+  <h3>Result:</h3>
+  <button class="clickable">Click me</button>
+  <p class="clickable">You can also click on me.</p>
 
   <br/><br/>
   {{> disqus}}

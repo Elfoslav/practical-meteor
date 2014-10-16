@@ -9,7 +9,7 @@
   <hr/>
 
   <button>Click me</button>
-  <p>Click the button above {{counter}}</p>
+  <p>You've pressed the button {{counter}} times.</p>
 
   <hr/>
   <h3>Client code:</h3>
@@ -18,13 +18,13 @@
 // counter starts at 0
 Session.setDefault("counter", 0);
 
-Template.home.helpers({
+Template.hello.helpers({
   counter: function () {
     return Session.get("counter");
   }
 });
 
-Template.home.events({
+Template.hello.events({
   'click button': function () {
     // increment the counter when button is clicked
     Session.set("counter", Session.get("counter") + 1);

@@ -17,14 +17,18 @@ Template.helpers.helpers({
     return a + b;
   },
   showBooks: function() {
-    return '{{#each books}}\n' +
-            '  <p>{{this}}</p>\n' +
-            '{{/each}}';
+    return '<template name="yourTemplateName">\n' +
+              '  {{#each books}}\n' +
+              '    <p>{{this}}</p>\n' +
+              '  {{/each}}\n' +
+            '</template>';
   },
   showBooksObjects: function() {
-    return '{{#each books}}\n' +
-            '  <p>{{title}}, {{pages}} pages.</p>\n' +
-            '{{/each}}';
+    return '<template name="yourTemplateName">\n' +
+              '  {{#each books}}\n' +
+              '    <p>{{title}}, {{pages}} pages.</p>\n' +
+              '  {{/each}}\n' +
+            '</template>';
   },
   addHelper: function() {
     return '{{add 5 6}}';

@@ -1,7 +1,7 @@
 <template name="books">
    <ul>
     {{#each books}}
-      <li title="{{_id}}">{{title}} by {{author}}</li>
+      <li title="{{_id}}">{{title}} by {{author}} <button class="delete-book">delete</button></li>
     {{else}}
       <li>No books</li>
     {{/each}}

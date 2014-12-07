@@ -1,0 +1,111 @@
+<template name="methods">
+  <h2>Methods</h2>
+
+  <p>
+    If you remove <a href="{{pathFor 'autopublishAndInsecure'}}">Insecure package</a>
+    from your application, you will need to use Meteor methods to work with collections.
+  </p>
+
+  <p>
+    You can define methods on the server and in shared folder (server + client). Code in shared folder
+    is visible on the client and everyone can see what logic you have in your methods. If you define
+    method in <i>server</i> folder, the code will not be sent to the client. The advantage of defining
+    methods in shared folder is <i>latency compensation</i>. With latency compensation, user of application
+    can immediately see database changes on the client without waiting for server response.
+  </p>
+
+  <p></p>
+
+<pre class="js">
+//define method addBook in shared folder or server folder
+Meteor.methods({
+  addBook: function(title, author) {
+    check(title, String); //check if title is String
+    check(author, String); //check if author is String
+
+    if (title === '') {
+      throw new Meteor.Error(500, "Parameter title can't be empty");
+    }
+
+    if (author === '') {
+      throw new Meteor.Error(500, "Parameter author can't be empty");
+    }
+
+    Books.insert({
+      title: title,
+      author: author
+    });
+  }
+});
+</pre>
+
+  <p>To call method and add book, we need to use Meteor.call. In this case we use Meteor.call on the client
+    but we can use it also on the server.
+  </p>
+
+<pre class="js">
+//client code
+Template.yourTemplateName.events({
+  'submit .add-book-form': function(e) {
+    e.preventDefault();
+    $form = $(e.currentTarget);
+    var title = $form.find('[name="title"]').val();
+    var author = $form.find('[name="author"]').val();
+
+    //call meteor method named addBook with parameters title and author
+    Meteor.call('addBook', title, author, function(error, result) {
+      if (error) {
+        alert(error);
+      }
+    });
+  }
+});
+</pre>
+
+<p>HTML:</p>
+
+<pre>&lt;form class="add-book-form"&gt;
+  &lt;p&gt;&lt;input class="form-control" type="text" placeholder="title of book" name="title" &gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input class="form-control" type="text" placeholder="author of book" name="author" &gt;&lt;/p&gt;
+  &lt;p&gt;&lt;button type="submit">Insert book&lt;/button>&lt;/p&gt;
+&lt;/form&gt;
+</pre>
+
+  <h3>Try to insert a book</h3>
+
+  <form class="add-book-form">
+    <p><input class="form-control" type="text" placeholder="title of book" name="title" value="{{title}}"></p>
+    <p><input class="form-control" type="text" placeholder="author of book" name="author" value="{{author}}"></p>
+    <p><button type="submit">Insert book</button></p>
+  </form>
+
+  <h3>Books:</h3>
+  <hr>
+  {{> books}}
+  <hr>
+
+  <p>You can define multiple methods:</p>
+
+<pre class="js">
+//server or shared code
+Meteor.methods({
+  addBook: function(title, author) {
+    //...
+  },
+  updateBook: function(bookId) {
+    //...
+  }
+});
+</pre>
+
+  <p>To learn more about latency compensation read
+    <a href="https://meteorhacks.com/introduction-to-latency-compensation.html">
+      Latency compensation article
+    </a>
+    on Meteorhacks.
+  </p>
+
+  <br/><br/>
+  {{> disqus}}
+
+</template>

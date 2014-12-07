@@ -56,6 +56,13 @@ Router.map(function() {
     }
   });
 
+  this.route('methods', {
+    path: '/methods',
+    waitOn: function() {
+      return Meteor.subscribe('books');
+    }
+  });
+
   this.route('superEasyDeploy', {
     path: '/super-easy-deploy'
   });
